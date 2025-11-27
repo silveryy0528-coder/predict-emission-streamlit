@@ -11,11 +11,11 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import root_mean_squared_error, r2_score, mean_absolute_error
-from custom_transformers import RareCategoryGrouper
+from utils.custom_transformers import RareCategoryGrouper
 
 
 #%% load data
-data_folder = r"C:\Users\YanGuo\Documents\predict-salary-streamlit"
+data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit"
 data = pd.read_csv(os.path.join(data_folder, 'vehicle_emissions.csv'))
 
 # %% create features and target

@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
-from custom_transformers import RareCategoryGrouper
+from utils.custom_transformers import RareCategoryGrouper
 
 
 def load_model():

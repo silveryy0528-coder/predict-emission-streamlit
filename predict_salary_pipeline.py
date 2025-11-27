@@ -12,7 +12,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import root_mean_squared_error, r2_score, mean_absolute_error
-from custom_transformers import RareCategoryGrouper, QuantileClipper, MultiHotEncoder, GenericOrdinalEncoder
+from utils.custom_transformers import RareCategoryGrouper, QuantileClipper, MultiHotEncoder, GenericOrdinalEncoder
 
 
 def clean_education(X):
@@ -26,7 +26,7 @@ def clean_education(X):
 
 
 #%% load data
-data_folder = r"C:\Users\YanGuo\Documents\predict-salary-streamlit"
+data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit"
 data = pd.read_csv(os.path.join(data_folder, 'stackoverflow_salary.csv'))
 data.dropna(subset=['ConvertedCompYearly'], inplace=True)
 
@@ -89,7 +89,7 @@ X = data[[
     'YearsCodePro',
     'Employment',
     'OrgSize',
-    # 'Age'
+    'Age'
 ]]
 y = data['ConvertedCompYearly']
 
@@ -99,7 +99,8 @@ preprocessor = ColumnTransformer(
         ('country', country_pipeline, ['Country']),
         ('years', years_pipeline, ['YearsCodePro']),
         ('employment', employment_pipeline, ['Employment']),
-        ('organization', organization_pipeline, ['OrgSize'])
+        ('organization', organization_pipeline, ['OrgSize']),
+        ('age', age_pipeline, ['Age'])
     ]
 )
 
