@@ -7,7 +7,7 @@ import os
 
 @st.cache_resource
 def load_data():
-    data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit"
+    data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit\emission"
     data = pd.read_csv(os.path.join(data_folder, 'vehicle_emissions.csv'))
     return data
 

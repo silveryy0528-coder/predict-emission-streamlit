@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+import sys
+sys.path.insert(0, '..')
 
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -15,7 +17,7 @@ from utils.custom_transformers import RareCategoryGrouper
 
 
 #%% load data
-data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit"
+data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit\emission"
 data = pd.read_csv(os.path.join(data_folder, 'vehicle_emissions.csv'))
 
 # %% create features and target

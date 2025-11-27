@@ -4,6 +4,7 @@ import numpy as np
 import joblib
 import matplotlib.pyplot as plt
 import os
+import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -12,6 +13,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import root_mean_squared_error, r2_score, mean_absolute_error
+sys.path.insert(0, '..')
 from utils.custom_transformers import RareCategoryGrouper, QuantileClipper, MultiHotEncoder, GenericOrdinalEncoder
 
 
@@ -26,7 +28,7 @@ def clean_education(X):
 
 
 #%% load data
-data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit"
+data_folder = r"C:\Users\YanGuo\Documents\regression-problem-streamlit\salary"
 data = pd.read_csv(os.path.join(data_folder, 'stackoverflow_salary.csv'))
 data.dropna(subset=['ConvertedCompYearly'], inplace=True)
 
