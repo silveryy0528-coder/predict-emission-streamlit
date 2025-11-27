@@ -165,16 +165,3 @@ class KFoldTargetEncoder(BaseEstimator, TransformerMixin):
 
         return oof_encoded.to_frame()
 
-
-#%%
-if __name__ == "__main__":
-    # simple test
-    data = pd.DataFrame({
-        'Category': ['A', 'B', 'A', 'C', 'B', 'A', 'D', 'E', 'A', 'B', 'C', 'D'],
-        'Value': [10, 20, 15, 30, 25, 10, 40, 50, 15, 20, 30, 40]
-    })
-    kte = KFoldTargetEncoder(n_splits=3, smoothing=1.0)
-    encoded = kte.fit_transform(data['Category'], data['Value'])
-    print("KFold Target Encoded values:\n", encoded)
-
-# %%
